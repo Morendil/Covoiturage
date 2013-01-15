@@ -4,7 +4,7 @@ import PlayProject._
 
 object ApplicationBuild extends Build {
 
-    val appName         = "fun"
+    val appName         = "Covoiturage"
     val appVersion      = "1.0-SNAPSHOT"
 
     val appDependencies = Seq(
