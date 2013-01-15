@@ -1,0 +1,22 @@
+@(trajetForm: Form[Trajet])
+@import helper._
+
+@helper.form(action = routes.TrajetActions.save, 'id -> "form") {
+  <fieldset>
+
+    @inputText(
+      trajetForm("depart"), 
+        '_label -> "Ville de départ")
+
+    @inputText(
+      trajetForm("arrivee"),
+        '_label -> "Ville d'arrivée")
+
+    @inputText(
+      trajetForm("date"),
+        '_label -> "Date du trajet")
+
+    <input type="submit" value="Creer">
+
+  </fieldset>
+}

@@ -2,10 +2,33 @@ package models;
 
 import java.util.*;
 
-public class Trajet {
+import play.db.ebean.*;
+import play.data.validation.Constraints.*;
+
+import javax.persistence.*;
+
+@Entity
+public class Trajet extends Model {
+
+  @Id
+  public Long id;
+
+  @Required
+  public String depart;
+  @Required
+  public String arrivee;
+  @Required
+  public Date date;
+
+  public static Finder<Long,Trajet> find = new Finder(
+    Long.class, Trajet.class
+  );
 
   public static List<Trajet> all() {
-    return new ArrayList<Trajet>();
+    return find.all();
   }
 
+  public static void create(Trajet trajet) {
+    trajet.save();
+  }
 }

@@ -1,0 +1,10 @@
+@(trajets: List[Trajet])
+
+@import helper._
+
+@main("Trajets") {
+  <h1>@trajets.size() trajet(s)</h1>
+  @for(trajet <- trajets) {
+    <p>De @trajet.depart à @trajet.arrivee le @trajet.date</p>
+  }
+}

@@ -27,7 +27,7 @@ public class CreerTrajet {
         data.put("date","31/01/2013");
 
         Result result = callAction(
-          controllers.routes.ref.Trajet.save(),
+          controllers.routes.ref.TrajetActions.save(),
           fakeRequest().withFormUrlEncodedBody(data)
         );
 
