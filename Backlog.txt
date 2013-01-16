@@ -1,0 +1,171 @@
+Prérequis (avant l'atelier):
+
+	Créer un compte GitHub pour chaque étudiant
+	Créer un compte Heroku partagé pour la classe
+	Créer un compte GitHub partagé pour la classe
+	Créer un dépôt GitHub pour chaque groupe
+	Ajouter les étudiants du groupe comme collaborateur au dépôt 
+
+___________________________________________________________________________
+
+Etape préliminaire:
+
+	Créer un projet vide contenant seulement un fichier README
+	Placer le répertoire projet sous contrôle de Git
+	Associer le répertoire projet avec un dépôt GitHub
+	Associer le répertoire projet avec un projet Heroku
+	Rapatrier le répertoire projet sur la machine du 2è binôme via Git
+
+___________________________________________________________________________
+
+
+Etape préliminaire:
+
+	Afin d'attirer de futurs utilisateurs (passagers et conducteurs)
+	je veux afficher un site-vitrine
+
+Indications de réalisation (Play)
+
+	Créer une application minimale dans le framework Play
+	Afficher une page d'accueil avec le titre
+	Identifier les éléments structurels de la page
+	Publier les modifications dans le dépôt GitHub
+	Publier les modifications dans le dépôt Heroku
+
+Indications de réalisation (PHP)
+
+	Créer une application minimale en PHP
+	Afficher une page d'accueil avec le titre
+	Identifier les éléments structurels de la page
+
+Déploiement et recette
+
+	(Play) Faire tourner le site en local avec "play run"
+	(PHP >= 5.4) Faire tourner le site en local avec "php -S localhost:8000"
+
+	Déployer vers Heroku avec "git push heroku master"
+	Afficher le site sur Heroku
+
+___________________________________________________________________________
+
+User Story:
+
+	En tant que passager,
+	lorsque je prévois un trajet,
+	je veux savoir si un trajet compatible est proposé
+
+Indications de réalisation (Play)
+
+	Créer un modèle Trajet sans persistance avec les informations essentielles
+		- ville de départ, ville d'arrivée, date
+		- identifiant du conducteur (deviendra une référence)
+	Créer un contrôleur Trajets
+	Créer l'action "index" du contrôleur qui liste les trajets
+	Créer un template HTML qui donne le nombre de trajets et leur liste
+	Ajouter la persistance au modèle Trajet
+
+Indications de réalisation (PHP)
+
+	Installer une couche d'abstraction de données (PDO, MDB2)
+	Créer une table Trajets en base avec les informations essentielles
+		- ville de départ, ville d'arrivée, date
+		- identifiant du conducteur (deviendra une clé étrangère)
+	Créer un point d'entrée trajets.php
+	Créer la structure HTML de la page pour le nombre de trajets et leur liste
+
+Déploiement et recette
+
+	Ajouter des trajets par programme ou par insertion dans la base locale
+	Vérifier le bon rendu de la liste des trajets
+
+	Fournir une configuration "production" utilisant Postgresql
+
+	Afficher le site sur Heroku
+	Vérifier le bon rendu de la liste des trajets
+
+___________________________________________________________________________
+
+User Story:
+
+	En tant que conducteur,
+	lorsque je prévois un trajet,
+	je veux proposer le partage de mon véhicule,
+	afin de réduire mes frais
+
+Indications de réalisation (Play)
+
+	Ajouter l'action "save" du contrôleur qui ajoute un trajet à la base
+	Ajouter l'action "create" du contrôleur qui affiche un formulaire
+	Ajouter un template HTML pour le formulaire "create"
+
+Indications de réalisation (PHP)
+
+	Ajouter un formulaire pour la création d'un nouveau trajet
+	Ajouter un point d'entrée pour la prise en compte des données du formulaire
+
+Déploiement et recette
+
+	En local puis sur Heroku:
+	Ajouter des trajets, puis revenir au point d'entrée "liste" pour vérifier l'ajout
+
+___________________________________________________________________________
+
+User Story:
+
+	Je veux m'identifier en tant que passager ou conducteur,
+	afin de pouvoir accéder aux opérations les plus pertinentes pour moi
+
+Indications de réalisation
+
+	(Play) Créer un modèle persistant "Utilisateur"
+
+	Ajouter en page d'accueil un formulaire d'identification avec:
+		- un champ identifiant
+		- deux boutons radio "Passager" et "Conducteur"
+		- un bouton "Se connecter"
+		- un bouton "Créer le compte"
+	(On réalisera dans une story ultérieure l'identification sécurisée)
+
+	Enregistrer l'identité utilisateur dans un cookie de session
+
+	Afficher "créer un trajet" pour le conducteur seulement
+
+Déploiement et recette
+
+	Vérifier qu'on peut créer le compte s'il n'existait pas
+	Vérifier qu'on voit des actions différentes selon le type
+
+___________________________________________________________________________
+
+User Story:
+
+	En tant que passager,
+	lorsqu'un conducteur propose un trajet qui me convient,
+	je veux pouvoir déposer une demande,
+	qui engagera le conducteur à me transporter
+	et retirera le trajet des trajets disponibles
+
+Indications de réalisation
+
+	Ajouter un bouton "Demander" à côté de chaque trajet, affiché pour les passagers
+	(Play) Lier le bouton à une nouvelle action du contrôleur
+	(PHP) Lier le bouton à un nouveau point d'entrée
+	(PHP) Lier le bouton à un nouveau point d'entrée
+
+Déploiement et recette
+
+	Vérifier que les trajets que j'ai demandés sont affichés à part
+	Vérifier que les trajets demandés ne sont plus affichés aux autres passagers
+
+___________________________________________________________________________
+
+User Story:
+
+	En tant que conducteur,
+	lorsqu'un passager a déposé une demande pour un de mes trajets,
+	je veux en être averti,
+	car cela m'engage vis-à-vis du passager
+
+Indications de réalisation
+
+	A vous de vous organiser...
